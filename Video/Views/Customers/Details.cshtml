@@ -12,8 +12,9 @@
         </div>
         <div>
             <ul>
-                <li>Subscribed to Newsletter: </li>
-
+                <li>Subscribed to Newsletter: @Model.IsSubscribedToNewsletter</li>
+                @if (Model.Birthdate.HasValue)
+                {<li>Birthday: @Model.Birthdate.Value.ToShortDateString()</li>}
             </ul>
         </div>
     </div>
