@@ -7,8 +7,6 @@ using Video.Models;
 
 namespace Video.Controllers
 {
-    [Route("/api/[controller]")]
-    [NonController]
     public class CustomersController : Controller
     {
         private AppDbContext dbContext;
@@ -19,7 +17,7 @@ namespace Video.Controllers
         }
 
         
-        public ViewResult Index()
+        public ActionResult Index()
         {
             var customers = dbContext.Customers.ToList();
             return View(customers);

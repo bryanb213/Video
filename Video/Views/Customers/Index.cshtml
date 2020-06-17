@@ -1,6 +1,21 @@
 ﻿@*
     For more information on enabling MVC for empty projects, visit https://go.microsoft.com/fwlink/?LinkID=397860
 *@
-@{
-}
-<h1>cust</h1>
+@model IEnumerable<Video.Models.Customer>
+<h1>List of happy customers</h1>
+
+@Html.ActionLink("New Customer", "New")
+
+<div>
+    <div>
+        <table>
+            <tr>
+                <td><b>Customers</b></td>
+                @foreach(var i in Model)
+                {
+                    <td><a>@i.Name</a></td>
+                }
+            </tr>
+        </table>
+    </div>
+</div>
