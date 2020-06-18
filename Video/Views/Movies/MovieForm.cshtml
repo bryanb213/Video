@@ -1,0 +1,34 @@
+﻿@*
+    For more information on enabling MVC for empty projects, visit https://go.microsoft.com/fwlink/?LinkID=397860
+*@
+@{
+}
+@model Video.ViewModels.NewMovieFormViewModel
+<h2>Movie Form</h2>
+
+@using(Html.BeginForm("Save", "Movies"))
+{
+    <div>
+        <div>
+            <div>
+                @Html.LabelFor(m => m.Movie.Name)
+                @Html.TextBoxFor(m => m.Movie.Name, new { @class = "" })
+                @Html.ValidationMessageFor(m => m.Movie.Name)
+            </div>
+            <div>
+                @Html.LabelFor(m => m.Movie.ReleaseDate)
+                @Html.TextBoxFor(m => m.Movie.ReleaseDate, "{0:d MM yyyy}" ,new { @class = "" })
+            </div>
+            <div>
+                @Html.LabelFor(m => m.Movie.NumberInStock)
+                @Html.TextBoxFor(m => m.Movie.NumberInStock, new { @class = "" })
+                @Html.ValidationMessageFor(m => m.Movie.NumberInStock)
+            </div>
+            @Html.HiddenFor(m => m.Movie.Id)
+            @Html.AntiForgeryToken()
+            <div>
+                <button>Submit</button>
+            </div>
+        </div>
+    </div>
+}
