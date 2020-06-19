@@ -1,0 +1,35 @@
+﻿@*
+    For more information on enabling MVC for empty projects, visit https://go.microsoft.com/fwlink/?LinkID=397860
+*@
+@{
+}
+@model Video.ViewModels.NewCustomerFormViewModel
+<h2>Customer Form</h2>
+
+@using(Html.BeginForm("Save", "Customers"))
+{
+    <div>
+        <div>
+            <div>
+                @Html.LabelFor(m => m.Customer.Name)
+                @Html.TextBoxFor(m => m.Customer.Name, new { @class = "" })
+                @Html.ValidationMessageFor(m => m.Customer.Name)
+            </div>
+            <div>
+                @Html.LabelFor(m => m.Customer.Birthdate)
+                @Html.TextBoxFor(m => m.Customer.Birthdate, new { @class = "" })
+                @Html.ValidationMessageFor(m => m.Customer.Birthdate)
+            </div>
+            <div class="custom-checkbox">
+                <label>
+                    @Html.CheckBoxFor(m => m.Customer.IsSubscribedToNewsletter) Is Subscribed to Newsletter
+                </label>
+            </div>
+            @Html.HiddenFor(m => m.Customer.Id)
+            @Html.AntiForgeryToken()
+            <div>
+                <button class="btn" btn-primary>Submit</button>
+            </div>
+        </div>
+    </div>
+}

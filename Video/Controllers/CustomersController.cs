@@ -1,9 +1,7 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Threading.Tasks;
+﻿using System.Linq;
 using Microsoft.AspNetCore.Mvc;
 using Video.Models;
+using Video.ViewModels;
 
 namespace Video.Controllers
 {
@@ -31,6 +29,16 @@ namespace Video.Controllers
                 return null;
 
             return View(customer);
+        }
+
+        public ActionResult New()
+        {
+            var viewModel = new NewCustomerFormViewModel
+            {
+                Customer = new Customer()
+            };
+
+            return View("CustomerForm", viewModel);
         }
     }
 }
