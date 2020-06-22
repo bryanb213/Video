@@ -8,6 +8,7 @@ namespace Video.ViewModels
 {
     public class NewCustomerFormViewModel
     {
+        public IEnumerable<MembershipType> MembershipTypesss { get; set; }
         public Customer Customer { get; set; }
     }
 }
