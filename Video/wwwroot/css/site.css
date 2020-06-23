@@ -11,6 +11,10 @@ a.navbar-brand {
 a {
   color: #0366d6;
 }
+.iconn{
+    font-size: 5px;
+    color: white;
+}
 
 .btn-primary {
   color: #fff;

@@ -7,16 +7,71 @@
 @Html.ActionLink("Add Movie", "New")
 <div class="row">
     <div class="col-md-12">
-        <table>
+        <table class="table table-hover">
             <tbody>
                 <tr>
                     <td><b>Movies</b></td>
-                    @foreach(var i in Model)
+                    @foreach (var i in Model)
                     {
-                        <td>@Html.ActionLink(i.Name, "Details", new { id = i.Id })</td>
+                <td>
+                    <a href="@Url.Action("Details","Movies", new { id = i.Id })" class="btn btn-primary">
+                        <i class="fas fa-pencil-alt"></i>
+                    </a>
+                    <a href="@Url.Action("Details","Movies", new { id = i.Id })" class="btn btn-primary">
+                        <i class="fas fa-trash-alt"></i>
+                    </a>
+                </td>
                     }
                 </tr>
             </tbody>
         </table>
     </div>
 </div>
+<table class="table table-hover">
+    <thead>
+        <tr>
+            <th scope="col">Type</th>
+            <th scope="col">Column heading</th>
+            <th scope="col">Column heading</th>
+            <th scope="col">Column heading</th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr class="table-active">
+            <th scope="row">Active</th>
+            <td>Column content</td>
+            <td>Column content</td>
+            <td>Column content</td>
+        </tr>
+        <tr>
+            <th scope="row">Default</th>
+            <td>Column content</td>
+            <td>Column content</td>
+            <td>Column content</td>
+        </tr>
+        <tr class="table-primary">
+            <th scope="row">Primary</th>
+            <td>Column content</td>
+            <td>Column content</td>
+            <td>Column content</td>
+        </tr>
+        <tr class="table-secondary">
+            <th scope="row">Secondary</th>
+            <td>Column content</td>
+            <td>Column content</td>
+            <td>Column content</td>
+        </tr>
+        <tr class="table-success">
+            <th scope="row">Success</th>
+            <td>Column content</td>
+            <td>Column content</td>
+            <td>Column content</td>
+        </tr>
+        <tr class="table-danger">
+            <th scope="row">Danger</th>
+            <td>Column content</td>
+            <td>Column content</td>
+            <td>Column content</td>
+        </tr>
+    </tbody>
+</table> 
