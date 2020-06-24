@@ -8,70 +8,32 @@
 <div class="row">
     <div class="col-md-12">
         <table class="table table-hover">
-            <tbody>
+            <thead>
                 <tr>
-                    <td><b>Movies</b></td>
+                    <th scope="col">Movie</th>
+                    <th scope="col">Date Released</th>
+                    <th scope="col">Number In Stock</th>
+                    <th scope="col">Edit/Delete</th>
+                </tr>
+            </thead>
+            <tbody>
                     @foreach (var i in Model)
                     {
-                <td>
-                    <a href="@Url.Action("Details","Movies", new { id = i.Id })" class="btn btn-primary">
-                        <i class="fas fa-pencil-alt"></i>
-                    </a>
-                    <a href="@Url.Action("Details","Movies", new { id = i.Id })" class="btn btn-primary">
-                        <i class="fas fa-trash-alt"></i>
-                    </a>
-                </td>
+                        <tr>
+                            <th>@i.Name</th>
+                            <td>@i.ReleaseDate.ToShortDateString()</td>
+                            <td>@i.NumberInStock</td>
+                            <td>
+                                <a href="@Url.Action("Details","Movies", new { id = i.Id })" class="btn btn-primary">
+                                    <i class="fas fa-pencil-alt"></i>
+                                </a>
+                               <a href="@Url.Action("Delete","Movies", new { id = i.Id })" class="btn btn-danger">
+                                    <i class="fas fa-trash-alt"></i>
+                                </a>
+                            </td>
+                        </tr>
                     }
-                </tr>
             </tbody>
         </table>
     </div>
 </div>
-<table class="table table-hover">
-    <thead>
-        <tr>
-            <th scope="col">Type</th>
-            <th scope="col">Column heading</th>
-            <th scope="col">Column heading</th>
-            <th scope="col">Column heading</th>
-        </tr>
-    </thead>
-    <tbody>
-        <tr class="table-active">
-            <th scope="row">Active</th>
-            <td>Column content</td>
-            <td>Column content</td>
-            <td>Column content</td>
-        </tr>
-        <tr>
-            <th scope="row">Default</th>
-            <td>Column content</td>
-            <td>Column content</td>
-            <td>Column content</td>
-        </tr>
-        <tr class="table-primary">
-            <th scope="row">Primary</th>
-            <td>Column content</td>
-            <td>Column content</td>
-            <td>Column content</td>
-        </tr>
-        <tr class="table-secondary">
-            <th scope="row">Secondary</th>
-            <td>Column content</td>
-            <td>Column content</td>
-            <td>Column content</td>
-        </tr>
-        <tr class="table-success">
-            <th scope="row">Success</th>
-            <td>Column content</td>
-            <td>Column content</td>
-            <td>Column content</td>
-        </tr>
-        <tr class="table-danger">
-            <th scope="row">Danger</th>
-            <td>Column content</td>
-            <td>Column content</td>
-            <td>Column content</td>
-        </tr>
-    </tbody>
-</table> 

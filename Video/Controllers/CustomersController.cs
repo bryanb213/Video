@@ -84,5 +84,19 @@ namespace Video.Controllers
 
             return View("CustomerForm", viewModel);
         }
+        [HttpGet("Delete/{id}")]
+        public ActionResult Delete(int id)
+        {
+            var customer = dbContext.Customers.SingleOrDefault(m => m.Id == id);
+
+            if (customer == null)
+            {
+                return Content("Not Found");
+            }
+
+            dbContext.Remove(customer);
+            dbContext.SaveChanges();
+            return RedirectToAction("Index", "Customers");
+        }
     }
 }

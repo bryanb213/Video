@@ -66,5 +66,33 @@ namespace Video.Controllers
 
             return RedirectToAction("Index", "Movies");
         }
+        public ActionResult Edit(int id)
+        {
+            var movie = dbContext.Movies.SingleOrDefault(c => c.Id == id);
+            if (movie == null)
+                return Content("Not found");
+
+            var viewModel = new NewMovieFormViewModel
+            {
+                Movie = movie
+            };
+
+            return View("MovieForm", viewModel);
+        }
+
+        [HttpGet("Delete/{id}")]
+        public ActionResult Delete(int id)
+        {
+            var movie = dbContext.Movies.SingleOrDefault(m => m.Id == id);
+
+            if(movie == null)
+            {
+                return Content("Not Found");
+            }
+
+            dbContext.Remove(movie);
+            dbContext.SaveChanges();
+            return RedirectToAction("Index", "Movies");
+        }
     }
 }
