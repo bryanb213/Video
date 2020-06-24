@@ -21,18 +21,6 @@ namespace Video.Controllers
             return View(customers);
         }
 
-        [Route("customers/details/{id}")]
-        public ActionResult Details(int id)
-        {
-            var customer = dbContext.Customers.SingleOrDefault(c => c.Id == id);
-            if (customer == null)
-            {
-                return NotFound();
-            }
-
-            return View(customer);
-        }
-
         public ActionResult New()
         {
             var viewModel = new NewCustomerFormViewModel
@@ -84,8 +72,8 @@ namespace Video.Controllers
 
             return View("CustomerForm", viewModel);
         }
-        [HttpGet("Delete/{id}")]
-        public ActionResult Delete(int id)
+        [HttpGet("DeleteCustomer/{id}")]
+        public ActionResult DeleteCustomer(int id)
         {
             var customer = dbContext.Customers.SingleOrDefault(m => m.Id == id);
 

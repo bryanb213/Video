@@ -11,9 +11,8 @@ a.navbar-brand {
 a {
   color: #0366d6;
 }
-.iconn{
-    font-size: 5px;
-    color: white;
+.field-validation-error {
+    color: red !important;
 }
 
 .btn-primary {

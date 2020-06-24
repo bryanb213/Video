@@ -6,29 +6,25 @@
 @model Video.ViewModels.NewMovieFormViewModel
 <h2>Movie Form</h2>
 
-@using(Html.BeginForm("Save", "Movies"))
+@using (Html.BeginForm("Save", "Movies"))
 {
+    <div class="form-group">
+        @Html.LabelFor(m => m.Movie.Name)
+        @Html.TextBoxFor(m => m.Movie.Name, new { @class = "form-control" })
+        @Html.ValidationMessageFor(m => m.Movie.Name)
+    </div>
+    <div class="form-group">
+        @Html.LabelFor(m => m.Movie.ReleaseDate)
+        @Html.TextBoxFor(m => m.Movie.ReleaseDate, "{0:d MM yyyy}", new { @class = "form-control" })
+    </div>
+    <div class="form-group">
+        @Html.LabelFor(m => m.Movie.NumberInStock)
+        @Html.TextBoxFor(m => m.Movie.NumberInStock, new { @class = "form-control" })
+        @Html.ValidationMessageFor(m => m.Movie.NumberInStock)
+    </div>
+    @Html.HiddenFor(m => m.Movie.Id)
+    @Html.AntiForgeryToken()
     <div>
-        <div>
-            <div>
-                @Html.LabelFor(m => m.Movie.Name)
-                @Html.TextBoxFor(m => m.Movie.Name, new { @class = "" })
-                @Html.ValidationMessageFor(m => m.Movie.Name)
-            </div>
-            <div>
-                @Html.LabelFor(m => m.Movie.ReleaseDate)
-                @Html.TextBoxFor(m => m.Movie.ReleaseDate, "{0:d MM yyyy}" ,new { @class = "" })
-            </div>
-            <div>
-                @Html.LabelFor(m => m.Movie.NumberInStock)
-                @Html.TextBoxFor(m => m.Movie.NumberInStock, new { @class = "" })
-                @Html.ValidationMessageFor(m => m.Movie.NumberInStock)
-            </div>
-            @Html.HiddenFor(m => m.Movie.Id)
-            @Html.AntiForgeryToken()
-            <div>
-                <button>Submit</button>
-            </div>
-        </div>
+        <button class="btn btn-primary">Submit</button>
     </div>
 }

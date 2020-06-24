@@ -22,12 +22,6 @@ namespace Video.Controllers
             return View(movies);
         }
 
-        public ActionResult Details(int id)
-        {
-            var movie = dbContext.Movies.SingleOrDefault(m => m.Id == id);
-            return View(movie);
-        }
-
         public ActionResult New()
         {
             var viewModel = new NewMovieFormViewModel

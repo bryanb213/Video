@@ -6,16 +6,35 @@
 
 @Html.ActionLink("New Customer", "New")
 
-<div>
-    <div>
-        <table>
-            <tr>
-                <td><b>Customers</b></td>
-                @foreach(var i in Model)
+<div class="row">
+    <div class="col-md-12">
+        <table class="table table-hover">
+            <thead>
+                <tr>
+                    <th scope="col">Name</th>
+                    <th scope="col">Birthday</th>
+                    <th scope="col">Is subscribed to Newsletter</th>
+                    <th scope="col">Edit/Delete</th>
+                </tr>
+            </thead>
+            <tbody>
+                @foreach (var i in Model)
                 {
-                    <td>@Html.ActionLink(i.Name, "Details", new {id = i.Id })</td>
+                    <tr>
+                        <th>@i.Name</th>
+                        <td>@i.Birthdate.Value.ToShortDateString()</td>
+                        <td>@i.IsSubscribedToNewsletter</td>
+                        <td>
+                            <a href="@Url.Action("Edit","Customers", new { id = i.Id })" class="btn btn-primary">
+                                <i class="fas fa-pencil-alt"></i>
+                            </a>
+                            <a href="@Url.Action("DeleteCustomer","Customers", new { id = i.Id })" class="btn btn-danger">
+                                <i class="fas fa-trash-alt"></i>
+                            </a>
+                        </td>
+                    </tr>
                 }
-            </tr>
+            </tbody>
         </table>
     </div>
 </div>
