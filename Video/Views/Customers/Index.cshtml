@@ -23,7 +23,7 @@
                     <tr>
                         <th>@i.Name</th>
                         <td>@i.Birthdate.Value.ToShortDateString()</td>
-                        <td>@i.IsSubscribedToNewsletter</td>
+                        <td>@(i.IsSubscribedToNewsletter == true ? "Yes" : "No")</td>
                         <td>
                             <a href="@Url.Action("Edit","Customers", new { id = i.Id })" class="btn btn-primary">
                                 <i class="fas fa-pencil-alt"></i>
